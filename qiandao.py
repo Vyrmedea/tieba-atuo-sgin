@@ -24,7 +24,7 @@ def get_tieba_link():
     return links
 
 
-def tieba_qiandao():
+def signup():
     links=get_tieba_link()
     for link in links:
         r=requests.get(link['href'],headers=Header)
@@ -38,11 +38,11 @@ def tieba_qiandao():
             print(f"{link['name']}吧签到成功")
         else:
             print(f"{link['name']}吧签到失败，原因：{r.json()['error']}")
-        time.sleep(1)
+        time.sleep(0.25)
 
 
 if __name__ == '__main__':
     Header = {
             'cookie': '',
         }
-    tieba_qiandao()
+    signup()
